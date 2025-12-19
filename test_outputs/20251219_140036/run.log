@@ -1,0 +1,21 @@
+2025-12-19 14:00:36,219 | INFO | Starting training run
+2025-12-19 14:00:36,228 | INFO | Loaded dataset: X=(569, 30), y=(569,)
+2025-12-19 14:00:36,230 | INFO | Using test_size=0.2, seed=42
+2025-12-19 14:00:36,231 | INFO | Split: train=455, test=114
+2025-12-19 14:00:36,238 | INFO | Model trained
+2025-12-19 14:00:36,248 | INFO | Accuracy: 0.9825
+2025-12-19 14:00:36,248 | INFO | Classification report:
+              precision    recall  f1-score   support
+
+           0       0.98      0.98      0.98        42
+           1       0.99      0.99      0.99        72
+
+    accuracy                           0.98       114
+   macro avg       0.98      0.98      0.98       114
+weighted avg       0.98      0.98      0.98       114
+
+2025-12-19 14:00:36,251 | INFO | Saved model to: test_outputs\20251219_140036\model.joblib
+2025-12-19 14:00:36,253 | INFO | Saved metrics to: test_outputs\20251219_140036\metrics.json
+2025-12-19 14:00:36,255 | INFO | Saved predictions to: test_outputs\20251219_140036\predictions.csv
+2025-12-19 14:00:36,257 | INFO | Updated runs summary: test_outputs\runs.csv
+2025-12-19 14:00:36,257 | INFO | Run finished successfully

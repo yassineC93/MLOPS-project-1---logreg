@@ -1,0 +1,54 @@
+{
+  "accuracy": 0.9824561403508771,
+  "n_train": 455,
+  "n_test": 114,
+  "model": "Pipeline(StandardScaler -> LogisticRegression)",
+  "config": {
+    "test_size": 0.2,
+    "random_state": 42,
+    "stratify": true
+  },
+  "logreg_params": {
+    "C": 1.0,
+    "class_weight": null,
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": 0.0,
+    "max_iter": 1000,
+    "n_jobs": null,
+    "penalty": "deprecated",
+    "random_state": null,
+    "solver": "lbfgs",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "classification_report": {
+    "0": {
+      "precision": 0.9761904761904762,
+      "recall": 0.9761904761904762,
+      "f1-score": 0.9761904761904762,
+      "support": 42.0
+    },
+    "1": {
+      "precision": 0.9861111111111112,
+      "recall": 0.9861111111111112,
+      "f1-score": 0.9861111111111112,
+      "support": 72.0
+    },
+    "accuracy": 0.9824561403508771,
+    "macro avg": {
+      "precision": 0.9811507936507937,
+      "recall": 0.9811507936507937,
+      "f1-score": 0.9811507936507937,
+      "support": 114.0
+    },
+    "weighted avg": {
+      "precision": 0.9824561403508771,
+      "recall": 0.9824561403508771,
+      "f1-score": 0.9824561403508771,
+      "support": 114.0
+    }
+  }
+}
