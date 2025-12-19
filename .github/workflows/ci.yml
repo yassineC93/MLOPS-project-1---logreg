@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-smoke-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run script (smoke test)
+        run: |
+          python main.py --output-dir ci_outputs --test-size 0.2 --seed 42
+
+      - name: Check expected files exist
+        run: |
+          python - << 'PY'
+          from pathlib import Path
+
+          base = Path("ci_outputs")
+          assert base.exists(), "ci_outputs folder not created"
+
+          run_dirs = [p for p in base.iterdir() if p.is_dir()]
+          assert run_dirs, "No run folder created inside ci_outputs"
+
+          run_dir = sorted(run_dirs)[-1]
+          expected = ["model.joblib", "metrics.json", "predictions.csv", "run.log", "run_config.json"]
+          missing = [f for f in expected if not (run_dir / f).exists()]
+          assert not missing, f"Missing files in run_dir {run_dir}: {missing}"
+
+          print("OK - artifacts found in", run_dir)
+          PY
